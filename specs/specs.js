@@ -19,5 +19,7 @@ describe('word_order', function() {
     it("will return something proper for whatever", function() {
         expect(word_order('a b b a a c a c b')).to.eql([4, 3, 2]);
     });
-
+    it("will return the word that appears most in order of first to last", function() {
+        expect(word_order("how can can we we we play football")).to.equal("we, can, how, play, football");
+    });
 });
