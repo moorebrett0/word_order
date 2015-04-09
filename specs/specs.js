@@ -12,4 +12,14 @@ describe('scrabbleScore', function() {
         expect(scrabbleScore('dog')).to.equal(5);
     });
 
+    it("will return a score of 9 if the user inputs gimp", function(){
+        expect(scrabbleScore('gimp')).to.equal(9);
+    });
+
+    it("will return a score of 14 if the user inputs CHAMP", function(){
+        expect(scrabbleScore('CHAMP')).to.equal(14);
+    });
+    it("will return a score of 23 if the user inputs quintessential", function(){
+        expect(scrabbleScore('quintessential')).to.equal(23);
+    });
 });

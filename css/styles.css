@@ -1,0 +1,43 @@
+body {
+    background-color: lightblue;
+}
+
+#result {
+    display:none;
+    padding: 100px;
+    padding-top: 100px;
+}
+
+.jumbotron {
+    background-image: url('http://www.photoaxe.com/wp-content/uploads/2014/08/coffe31.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    text-align: center;
+    color: white;
+}
+
+h2 {
+    opacity: .8;
+    color: white;
+}
+
+h3 {
+    font-size: 700%;
+    opacity: .8;
+    font-family: lucida;
+}
+
+
+#result_img::after {
+    content: "";
+    background-repeat: no-repeat;
+    background: url('https://s-media-cache-ak0.pinimg.com/originals/a1/0d/b6/a10db62a9b079c75b62f0158e737f4a4.jpg');
+    background-size: 250%;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
