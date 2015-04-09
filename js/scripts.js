@@ -1,38 +1,116 @@
-var scrabbleScore = function(input) {
-    var letters = { 'a':1, 'e':1, 'i':1, 'o':1, 'l':1, 'n':1, 'r':1, 's':1, 't':1, 'u':1,
-                    'd':2, 'g':2,
-                    'b':3, 'c':3, 'm':3, 'p':3,
-                    'f':4, 'h':4, 'v':4, 'w':4, 'y':4,
-                    'k':5,
-                    'j':8, 'x':8,
-                    'q':10, 'z':10};
+var word_order = function(input) {
+    var split = input.split(" ").sort();
+    console.log(split);
 
-    var score = 0;
-    var split_input = input.toLowerCase().split("");
-    console.log(split_input);
+    var words = [];
+    var counts = [];
+    var p = 0;
 
-    for (var i = 0; i < split_input.length; i++) {
-        score += letters[split_input[i]];
-        console.log(score);
+    while(p < split.length) {
+        var count = 1;
+        var index = split[p];
+        words.push(index);
+        while(index === split[p+1]){
+            split.splice(p+1, 1);
+            count++;
+        }
+        p++;
+        counts.push(count);
     }
 
-    return score;
+
+
+
+
+    // for (var i = 0; i<=split.length; i++) {
+    //     var count = 0;
+    //     var index = split[p];
+    //     words.push(index);
+    //     console.log("i: " + i);
+    //
+    //
+    //     // for (var k = 0; k < split.length; k++) {
+    //         while((index === split[p]) && (index === split[p+1])) {
+    //             split.splice(p+1, 1);
+    //             count++;
+    //             p++;
+    //             console.log("index: " + index);
+    //             console.log("split : " + split);
+    //             // console.log("k: " + k);
+    //             console.log("count" + count);
+    //             console.log("p :" + p);
+    //             if (p > 15) break;
+    //         }
+    //
+    //
+    //
+    //     }
+    //     counts.push(count);
+    //
+    //     // for(var k = 0; k < split.length; k++) {
+    //     //     if((split[i] === split[k])) {
+    //     //         split.splice(k, 1);
+    //     //         count++;
+    //     //         console.log("split in k loop: " + split);
+    //     //     }
+    //     //     if (split.length === 1) {
+    //     //         split.splice(0,1);
+    //     //         count++;
+    //     //     }
+    //     // }
+    //
+    // }
+
+
+    console.log("words: " + words);
+    console.log("counts: " + counts);
+
+    return counts;
+
+
+
+
+
+
+
+    // for (var i = 0; i < split.length; i++) {
+    //     var word = split[i];
+    //     var count = 0;
+    //     console.log("word: " + word);
+    //
+    //     amounts.push({word:count});
+    //     console.log("amounts: " + amounts);
+    //
+    //     for (var k = 0; k < split.length; k++) {
+    //         if (word === split[k]) {
+    //             word.count++;
+    //             split.splice(k, 1);
+    //         }
+    //     }
+    // }
+    // // console.log(amounts);
+
+
+
+
+    return amounts;
+
 }
 
-$(document).ready(function() {
-
-    $("form#input").submit(function(event) {
-        var input = $("input#input").val();
-
-        var score = scrabbleScore(input);
-
-        $('#score').text("Your scrabble score is: " + score +
-                         " for the word " + input);
-
-                         $("#result").show();
-                         event.preventDefault();
-    });
-
-
-
-});
+// $(document).ready(function() {
+//
+//     $("form#input").submit(function(event) {
+//         var input = $("input#input").val();
+//
+//         var score = scrabbleScore(input);
+//
+//         $('#score').text("Your scrabble score is: " + score +
+//                          " for the word " + input);
+//
+//                          $("#result").show();
+//                          event.preventDefault();
+//     });
+//
+//
+//
+// });
